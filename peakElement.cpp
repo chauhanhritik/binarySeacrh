@@ -10,8 +10,10 @@ int firstPeakElement(int arr[]){
     while (l<=h){
         mid = l + ( h - l ) / 2;
 
-        if(arr[mid-1] <= arr[mid] && arr[mid+1] <= arr[mid]) return mid;
-        else if (arr[mid-1] > arr[mid]) h = mid - 1;
+        // if(arr[mid-1] <= arr[mid] && arr[mid+1] <= arr[mid]) return mid;  --> this statement does not handle any of the H cases, only applicable for elements having two adjacent elements
+         // if first element is being checked       if last element is being checked
+        if((mid == 0 || arr[mid-1] <= arr[mid]) && (mid == 9 || arr[mid+1] <= arr[mid])) return mid;
+        else if (mid > 0 && arr[mid-1] > arr[mid]) h = mid - 1;
         else l = mid + 1;
 
     }
