@@ -1,4 +1,4 @@
-// a peak element in an array exists when it is greater than or equal to  it's adjacent element(s), and holds same for the first and last elements as well, which are the H cases of this.
+// a peak element in an array exists when it is greater than or equal to  it's adjacent element(s), and holds same for the first and last elements as well, which are the edge cases of this.
 // returning the first peak element we come accross, using binary search approach to better the time complexity
 #include<iostream> 
 #include<vector>
@@ -10,7 +10,7 @@ int firstPeakElement(int arr[]){
     while (l<=h){
         mid = l + ( h - l ) / 2;
 
-        // if(arr[mid-1] <= arr[mid] && arr[mid+1] <= arr[mid]) return mid;  --> this statement does not handle any of the H cases, only applicable for elements having two adjacent elements
+        // if(arr[mid-1] <= arr[mid] && arr[mid+1] <= arr[mid]) return mid;  --> this statement does not handle any of the edge cases, only applicable for elements having two adjacent elements
          // if first element is being checked       if last element is being checked
         if((mid == 0 || arr[mid-1] <= arr[mid]) && (mid == 9 || arr[mid+1] <= arr[mid])) return mid;
         else if (mid > 0 && arr[mid-1] > arr[mid]) h = mid - 1;
